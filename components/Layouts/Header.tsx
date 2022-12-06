@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import {HeartIcon, MagnifyingGlassCircleIcon, ShoppingBagIcon} from "@heroicons/react/24/outline";
-import logo from '../public/images/logo.svg';
+import logo from '../../public/images/logo.svg';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-interface Props {
-    categories: string[]
-}
+// interface Props {
+//     categories: string[]
+// }
 
-export default function Header({categories}: Props) {
+export default function Header() {
+    const categories: string[] = ["smartphones","laptops","fragrances","skincare","groceries","home-decoration","furniture","tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses","automotive","motorcycle","lighting"];
     const mainCategories = categories.slice(0,5);
     const otherCategories = categories.slice(5, categories.length).sort((a, b) => (a>b ? 1 : 0));
 
@@ -18,7 +19,7 @@ export default function Header({categories}: Props) {
         <ul className="flex space-x-3 items-center">
             {
                 mainCategories.map((category) => {
-                    return <li key={category}><Link href="#" className="uppercase">{category}</Link></li>
+                    return <li key={category}><Link href="components#" className="uppercase">{category}</Link></li>
                 })
             }
             <Dropdown arrowClassName="arrowControl" controlClassName={"control"} options={otherCategories} onChange={() => {

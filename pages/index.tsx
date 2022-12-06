@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/Layouts/Header";
 import React from "react";
 import {Product} from "../models/Product";
 import ProductList from "../components/Products/ProductList";
@@ -17,11 +17,8 @@ interface Props {
 
 export default function Home({smartphones, laptops, categories}: Props) {
 
-
     return (
         <>
-            <Header categories={categories}/>
-
             <HeroProducts images={[heroImage1, heroImage2, heroImage3]}/>
 
             <ProductList products={smartphones} tittle="SmartPhones" description="best smartphonoes"/>
