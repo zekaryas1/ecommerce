@@ -21,8 +21,8 @@ export default function Home({smartphones, laptops, categories}: Props) {
         <>
             <HeroProducts images={[heroImage1, heroImage2, heroImage3]}/>
 
-            <ProductList products={smartphones} tittle="SmartPhones" description="best smartphonoes"/>
-            <ProductList products={laptops} tittle="Laptops"
+            <ProductList products={smartphones} showViewAllButton={true} tittle="SmartPhones" description="best smartphonoes"/>
+            <ProductList products={laptops} showViewAllButton={true} tittle="Laptops"
                          description={"The best inhouse laptops right from the house"}/>
         </>
     )

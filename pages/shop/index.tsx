@@ -6,7 +6,7 @@ interface Props {
 }
 
 function shop({products}: Props) {
-    return <ProductList products={products}/>
+    return <ProductList products={products} />
 }
 
 export default shop;
