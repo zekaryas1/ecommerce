@@ -7,7 +7,7 @@ interface Props {
 
 function MainProduct({product}: Props) {
     return <div className="bg-gray-100 rounded p-3 hover:bg-gray-300 hover:cursor-pointer">
-        <Image className="w-full aspect-video object-cover object-top hover:object-center transition duration-1000 ease-out" src={product.thumbnail} width="400" height="400" alt="product image"/>
+        <Image className="w-full aspect-video object-cover " src={product.thumbnail} width="400" height="400" alt="product image"/>
         <h2 className="font-bold">{ product.title }</h2>
         <h2 className="truncate text-neutral-500">{ product.description }</h2>
     </div>
