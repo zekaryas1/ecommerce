@@ -1,18 +1,19 @@
 import {Product} from "../../models/Product";
 import ProductList from "../../components/Products/ProductList";
+import {GetServerSideProps} from "next";
 
 interface Props {
     products: Product[]
 }
 
 function shop({products}: Props) {
-    return <ProductList products={products} />
+    return <ProductList products={products}/>
 }
 
 export default shop;
 
-export async function getServerSideProps(context: any) {
-
+//TODO: ALSO REFACTOR ALL CODE FINALLY
+export const getServerSideProps: GetServerSideProps = async (context) => {
     const {query} = context;
     const {category} = query;
 
@@ -29,5 +30,4 @@ export async function getServerSideProps(context: any) {
             products: result.products
         }
     }
-
 }
