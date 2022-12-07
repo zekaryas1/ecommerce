@@ -4,6 +4,8 @@ import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import React from "react";
 import ReactStars from "react-rating-stars-component";
+import {PrimaryButton} from "../../components/Button";
+import {ShoppingCartIcon} from "@heroicons/react/24/outline";
 
 interface Props {
     product: Product
@@ -26,13 +28,19 @@ export default function ShopById({product}: Props) {
             </Carousel>
         </div>
         <div className="px-6 py-3">
-            <p className="text-neutral-500">{product.brand}</p>
+            <p className="text-neutral-500">{product.category} by {product.brand}</p>
             <h3 className="text-3xl font-bold">{product.title}</h3>
             <div className="flex">
                 <ReactStars edit={false} value={product.rating} count={5}/>
             </div>
             <p className="mt-3 text-xl font-medium">${product.price}</p>
             <p className="text-small mt-6">{product.description}</p>
+
+            <PrimaryButton onClick={() => {
+            }} className="w-full mt-6 rounded-2xl">
+                    <ShoppingCartIcon className="h-5 w-4 mr-2"/>
+                    Add to cart
+            </PrimaryButton>
         </div>
     </div>
 }
