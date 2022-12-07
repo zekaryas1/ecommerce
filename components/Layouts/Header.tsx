@@ -19,7 +19,9 @@ export default function Header() {
     const otherCategories = categories.slice(5, categories.length).sort((a, b) => (a > b ? 1 : 0));
 
     return <div className="w-full p-3 flex justify-between items-center shadow bg-gray-900 text-white rounded-2xl">
-        <Image className="fill-white h-6" src={logo} width={50} height={30} alt="website logo"/>
+        <Link href="/">
+            <Image className="fill-white h-6" src={logo} width={50} height={30} alt="website logo"/>
+        </Link>
         <ul className="flex space-x-3 items-center">
             {
                 mainCategories.map((category) => {
