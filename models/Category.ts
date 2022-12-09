@@ -2,13 +2,13 @@ export interface Category {
     name: string;
 }
 
-interface Data {
+export interface CategoryData {
     main: Category[],
     others: Category[]
 }
 
 
-export const categoryData: Data = {
+export const categoryData: CategoryData = {
     main: [
         {
             name: "smartphones",

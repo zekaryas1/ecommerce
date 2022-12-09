@@ -5,10 +5,13 @@ import logo from '../../public/images/logo.svg';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import {useRouter} from "next/router";
-import {categoryData} from "../../models/Category";
+import {CategoryData} from "../../models/Category";
 
+interface Props {
+    categoryData: CategoryData
+}
 
-export default function Header() {
+export default function Header({categoryData}: Props) {
     const router = useRouter();
     const optionalCategoryData = categoryData.others.map(value => value.name);
 
