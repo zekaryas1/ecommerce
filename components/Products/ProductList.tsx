@@ -15,7 +15,7 @@ function ProductList({products, tittle, description, showViewAllButton}: Props) 
     return <div className="mt-4">
         <div className="mb-3 flex justify-between">
             <div>
-                {tittle && <h2 className="text-2xl font-bold"> {tittle} </h2>}
+                {tittle && <h2 className="text-2xl font-bold uppercase"> {tittle} </h2>}
                 {description && <p className="text-neutral-500"> {description} </p>}
             </div>
             {showViewAllButton && <div className="flex items-center">

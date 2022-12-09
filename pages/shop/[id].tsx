@@ -8,6 +8,7 @@ import ReactStars from "react-rating-stars-component";
 import {LightButton, PrimaryButton} from "../../components/Button";
 import {HeartIcon, ShoppingCartIcon} from "@heroicons/react/24/outline";
 import ProductList from "../../components/Products/ProductList";
+import Link from "next/link";
 
 interface Props {
     product: Product,
@@ -40,7 +41,7 @@ export default function ShopById({product, relatedProducts}: Props) {
                 </div>
                 <div className="flex items-baseline space-x-3">
                     <h3 className="text-3xl font-bold uppercase">{product.title}</h3>
-                    <span className="text-neutral-500">{product.category} by {product.brand}</span>
+                    <span className="text-neutral-500"><Link href={`/shop?category=${product.category}`} className="underline text-gray-800">{product.category}</Link> by {product.brand}</span>
                 </div>
 
                 <p className="text-small mt-4 text-neutral-500">{`${product.description} ${product.description}`}</p>

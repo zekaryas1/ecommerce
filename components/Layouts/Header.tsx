@@ -6,6 +6,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import {useRouter} from "next/router";
 import {CategoryData} from "../../models/Category";
+import Cart from "../Cart";
 
 interface Props {
     categoryData: CategoryData
@@ -19,7 +20,8 @@ export default function Header({categoryData}: Props) {
         router.push(`/shop?category=${destination}`);
     }
 
-    return <div className="w-full p-3 flex justify-between items-center shadow bg-gray-900 text-white rounded-2xl">
+    return <div
+        className="relative w-full p-3 flex justify-between items-center shadow bg-gray-900 text-white rounded-2xl">
         <Link href="/">
             <Image className="fill-white h-6" src={logo} width={50} height={30} alt="website logo"/>
         </Link>
@@ -35,8 +37,9 @@ export default function Header({categoryData}: Props) {
         </ul>
         <div className="flex space-x-3">
             <MagnifyingGlassCircleIcon className="h-6 w-6"/>
-            <HeartIcon className="h-6 w-6"/>
-            <ShoppingBagIcon className="h-6 w-6"/>
+            <Link href={"/cart"}>
+                <ShoppingBagIcon className="h-6 w-6"/>
+            </Link>
         </div>
     </div>
 }
