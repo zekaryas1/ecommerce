@@ -39,7 +39,6 @@ export default function Header({categoryData}: Props) {
                       onChange={option => goTo(option.value)} placeholder="More categories"/>
         </ul>
         <div className="flex space-x-3">
-            <MagnifyingGlassCircleIcon className="h-6 w-6"/>
             <Link href={"/cart"}>
                 <ShoppingBagIcon className="h-6 w-6"/>
             </Link>
