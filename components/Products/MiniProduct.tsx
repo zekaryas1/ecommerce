@@ -14,7 +14,7 @@ function CartProduct({cartItem, callBack}: Props) {
     return <div className="flex mb-3 shadow-md justify-between items-center p-3 rounded bg-gray-200 text-black">
         <div className="flex items-center space-x-3">
             <Image className="rounded" width={50} height={50}
-                   src={`https://i.dummyjson.com/data/products/${cartItemState.id}/thumbnail.jpg`} alt={"this is alt"}/>
+                   src={`https://i.dummyjson.com/data/products/${cartItemState.id}/thumbnail.jpg`} alt={`image for ${cartItem.title}`}/>
             <div>
                 <p className="font-bold w-44 uppercase">{cartItemState.title}</p>
                 <span className="text-sm text-neutral-500">PRICE: ${cartItemState.price}</span>

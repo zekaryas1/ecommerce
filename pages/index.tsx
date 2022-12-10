@@ -17,9 +17,11 @@ export default function Home({smartphones, laptops}: Props) {
             <HeroProducts carouselData={carouselData}/>
 
             <ProductList products={smartphones} showViewAllButton={true} tittle="SmartPhones"
-                         description="best smartphones"/>
+                         description="Latest smartphones with better storage and camera"
+                         viewAllDestination="smartPhones"/>
             <ProductList products={laptops} showViewAllButton={true} tittle="Laptops"
-                         description={"The best in-house laptops right from the house"}/>
+                         description={"Powerful laptops made to last longer starting from 1099"}
+                         viewAllDestination="laptops"/>
         </>
     )
 }
@@ -33,7 +35,7 @@ export async function getStaticProps() {
         props: {
             smartphones: smartphones.products,
             laptops: laptops.products,
-        }, // will be passed to the page component as props
+        },
     }
 
 }

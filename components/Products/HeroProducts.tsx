@@ -24,8 +24,7 @@ function HeroProducts({carouselData}: Props) {
                     <div className="absolute text-white top-1/3 left-24 flex flex-col space-y-3 items-start">
                         <h2 className="text-5xl font-bold">{carousel.title}</h2>
                         <p className="max-w-md text-gray-400 text-start">{carousel.description}</p>
-                        <LightButton onClick={() => {
-                        }}>
+                        <LightButton>
                             View move
                         </LightButton>
                     </div>

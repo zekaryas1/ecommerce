@@ -19,7 +19,6 @@ function shop({products, category}: Props) {
 
 export default shop;
 
-//TODO: ALSO REFACTOR ALL CODE FINALLY
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const {query} = context;
     const {category} = query;

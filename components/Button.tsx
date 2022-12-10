@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-    onClick: Function,
+    onClick?: Function,
     children: React.ReactNode,
     className?: string
 }
@@ -13,7 +13,7 @@ export function PrimaryButton({onClick, children, className}: Props) {
     }
 
     return <button onClick={() => {
-        onClick()
+        onClick && onClick()
     }} type="button"
                    className={defaultClass}>
         {children}
@@ -27,7 +27,7 @@ export function LightButton({onClick, children, className}: Props) {
     }
 
     return <button onClick={() => {
-        onClick()
+        onClick && onClick()
     }} type="button"
                    className={defaultClass}>
         {children}

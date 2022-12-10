@@ -2,15 +2,19 @@ import {Product} from "../../models/Product";
 import MainProduct from "./MainProduct";
 import {ArrowRightIcon} from "@heroicons/react/24/outline";
 import {LightButton} from "../Button";
+import {useRouter} from "next/router";
 
 interface Props {
     products: Product[],
+
+    viewAllDestination?: string;
     tittle?: String,
     description?: String,
     showViewAllButton?: boolean
 }
 
-function ProductList({products, tittle, description, showViewAllButton}: Props) {
+function ProductList({products, viewAllDestination, tittle, description, showViewAllButton}: Props) {
+    const router = useRouter();
 
     return <div className="mt-4">
         <div className="mb-3 flex justify-between">
@@ -20,6 +24,7 @@ function ProductList({products, tittle, description, showViewAllButton}: Props) 
             </div>
             {showViewAllButton && <div className="flex items-center">
                 <LightButton onClick={() => {
+                    router.push(`/shop?category=${viewAllDestination}`)
                 }}>
                     View all
                     <ArrowRightIcon className="w-5"/>
