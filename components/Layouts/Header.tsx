@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import {MagnifyingGlassCircleIcon, ShoppingBagIcon} from "@heroicons/react/24/outline";
 import logo from '../../public/images/logo.svg';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import {useRouter} from "next/router";
 import {CategoryData} from "../../models/Category";
+import {ShoppingCartIcon} from "@heroicons/react/24/solid";
 
 interface Props {
     categoryData: CategoryData
@@ -21,12 +21,14 @@ export default function Header({categoryData}: Props) {
     }
 
     return <div
-        className="relative w-full p-3 flex justify-between items-center shadow bg-gray-900 text-white rounded-2xl">
+        className="relative w-full p-3 flex justify-between items-center shadow bg-neutral-900 text-white rounded-2xl">
         <Link href="/">
-            <Image className="fill-white h-6" src={logo} width={50} height={30} alt="website logo"/>
+            <Image className="object-right fill-white h-6" src={logo} width={50} height={30} alt="website logo"/>
         </Link>
-        <ul className="flex space-x-3 items-center">
-            <li><Link href='/shop' className={`uppercase hover:text-neutral-200 ${!currentCategory ? 'text-white font-bold' : 'text-neutral-500'} `}>Home</Link></li>
+        <ul className="hidden md:flex space-x-3 items-center">
+            <li><Link href='/shop'
+                      className={`uppercase hover:text-neutral-200 ${!currentCategory ? 'text-white font-bold' : 'text-neutral-500'} `}>Home</Link>
+            </li>
             {
 
                 categoryData.main.map((category) => {
@@ -40,7 +42,7 @@ export default function Header({categoryData}: Props) {
         </ul>
         <div className="flex space-x-3">
             <Link href={"/cart"}>
-                <ShoppingBagIcon className="h-6 w-6"/>
+                <ShoppingCartIcon className="h-6 w-6 mr-2"/>
             </Link>
         </div>
     </div>

@@ -11,12 +11,12 @@ interface Props {
 function CartProduct({cartItem, callBack}: Props) {
     const [cartItemState, setCartItemState] = useState(cartItem);
 
-    return <div className="flex mb-3 shadow-md justify-between items-center p-3 rounded bg-gray-200 text-black">
-        <div className="flex items-center space-x-3">
+    return <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 shadow-md space-y-5 p-3 rounded bg-neutral-200 text-black">
+        <div className="flex items-start space-x-3">
             <Image className="rounded" width={50} height={50}
                    src={`https://i.dummyjson.com/data/products/${cartItemState.id}/thumbnail.jpg`} alt={`image for ${cartItem.title}`}/>
             <div>
-                <p className="font-bold w-44 uppercase">{cartItemState.title}</p>
+                <p className="font-bold md:w-44 uppercase">{cartItemState.title}</p>
                 <span className="text-sm text-neutral-500">PRICE: ${cartItemState.price}</span>
             </div>
         </div>

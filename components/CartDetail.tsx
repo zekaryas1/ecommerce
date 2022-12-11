@@ -25,8 +25,8 @@ function CartDetail({cartItems}: Props) {
     }
 
     return <>
-        <h2 className="text-4xl mt-3 mb-5 font-bold">Order summary</h2>
-        <hr className="bg-gray-200 mt-6 mb-5"/>
+        <h2 className="text-2xl sm:text-4xl mt-3 mb-2 sm:mb-5 font-bold">Order summary</h2>
+        <hr className="bg-gray-200 mt-3 sm:mt-6 mb-5"/>
         <div className="flex justify-between mb-5">
             <p className="uppercase font-medium">Cost</p>
             <p className="font-bold">{cachedGetTotalPrice}</p>

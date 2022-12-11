@@ -30,10 +30,10 @@ export default function Cart({carts}: Props) {
     }
 
 
-    return (<div className="grid gap-24 grid-cols-12">
+    return (<div className="grid grid-cols-1 md:grid-cols-12 md:gap-20">
         <div className="col-span-8">
-            <h2 className="text-4xl mt-3 mb-3 font-bold">Shopping cart</h2>
-            <hr className="bg-gray-200 mt-6 mb-6"/>
+            <h2 className="text-2xl sm:text-4xl mt-3 mb-3 font-bold">Shopping cart</h2>
+            <hr className="bg-gray-200 mt-3 mb-3 sm:mt-6 sm:mb-6"/>
             <div>
                 {
                     state.map(cart => {

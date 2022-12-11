@@ -7,7 +7,7 @@ interface Props {
 }
 
 export function PrimaryButton({onClick, children, className}: Props) {
-    let defaultClass = "btn text-gray-200 bg-gray-800 hover:bg-gray-700 "
+    let defaultClass = "btn text-white bg-neutral-900 hover:bg-neutral-700 "
     if (className) {
         defaultClass = defaultClass + className;
     }
