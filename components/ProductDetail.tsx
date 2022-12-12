@@ -25,7 +25,7 @@ function ProductDetail({product}: Props) {
             </span>
         </div>
 
-        <p className="max-w-lg md:max-w-lg text-justify text-left text-small mt-4 text-neutral-500">{`${product.description} ${product.description}`}</p>
+        <p className="max-w-lg leading-relaxed text-justify md:text-left text-small mt-4 text-neutral-500">{`${product.description} ${product.description}`}</p>
         <p className="mt-3 text-3xl font-bold">${product.price}</p>
         <div className="flex items-end space-x-3">
             <PrimaryButton className="mt-4">

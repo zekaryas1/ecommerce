@@ -11,9 +11,9 @@ interface Props {
 function CartProduct({cartItem, callBack}: Props) {
     const [cartItemState, setCartItemState] = useState(cartItem);
 
-    return <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 shadow-md space-y-5 p-3 rounded bg-neutral-200 text-black">
+    return <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 border-b-2 space-y-5 p-3 rounded text-black">
         <div className="flex items-start space-x-3">
-            <Image className="rounded" width={50} height={50}
+            <Image className="border-neutral-400 border-4 rounded" width={50} height={50}
                    src={`https://i.dummyjson.com/data/products/${cartItemState.id}/thumbnail.jpg`} alt={`image for ${cartItem.title}`}/>
             <div>
                 <p className="font-bold md:w-44 uppercase">{cartItemState.title}</p>
@@ -21,7 +21,7 @@ function CartProduct({cartItem, callBack}: Props) {
             </div>
         </div>
         <div className="flex space-x-3 items-center">
-            <MinusIcon className="h-5 w-5 bg-neutral-300 cursor-pointer" onClick={() => {
+            <MinusIcon className="h-5 w-5 cursor-pointer" onClick={() => {
                 setCartItemState(prevState => {
                     if (prevState.quantity === 1) {
                         return prevState;
@@ -36,8 +36,8 @@ function CartProduct({cartItem, callBack}: Props) {
                 })
             }
             }/>
-            <span>{cartItemState.quantity}</span>
-            <PlusIcon className="h-5 w-5 bg-neutral-300 cursor-pointer" onClick={() => {
+            <span className="px-3 py-1 rounded border-neutral-400 border-2">{cartItemState.quantity}</span>
+            <PlusIcon className="h-5 w-5 cursor-pointer" onClick={() => {
                 setCartItemState(prevState => {
                     const newState = {
                         ...prevState,
