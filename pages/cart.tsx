@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     .map((product) => {
       return {
         ...product,
-        quantity: 1,
+        quantity: 0,
         total: 0,
       };
     })

@@ -187,7 +187,7 @@ export const PRODUCT_DATA = [
     long_description:
       "The ASUS TUF Gaming VG279QM is a 27-inch gaming monitor with a 1920 x 1080 resolution, 280Hz refresh rate, and a 1ms response time. It has excellent color accuracy and is compatible with both NVIDIA G-Sync and AMD FreeSync technologies.",
     category: "monitors",
-    price: 399.00,
+    price: 399.0,
     images: [
       "https://images.unsplash.com/photo-1586952518485-11b180e92764",
       "https://images.unsplash.com/photo-1608304908553-cb76914dcf59",
@@ -257,7 +257,7 @@ export const PRODUCT_DATA = [
     long_description:
       "The Dell U3419W is a 34-inch ultrawide monitor with a curved display. It offers a WQHD resolution and an IPS panel for stunning visuals. With its USB-C connectivity and built-in KVM feature, it provides a versatile and productive workspace.",
     category: "monitors",
-    price: 899.00,
+    price: 899.0,
     images: [
       "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2",
       "https://images.unsplash.com/photo-1608304908553-cb76914dcf59",
@@ -554,7 +554,7 @@ export const PRODUCT_DATA = [
     short_description: "Classic aviator-style sunglasses with a metal frame",
     long_description:
       "The Ray-Ban Aviator sunglasses are a timeless classic. With a metal frame and a sleek design, these sunglasses are perfect for any occasion. The lenses are made from high-quality materials to ensure clarity and UV protection.",
-    price: 150.0,
+    price: 150,
     category: "accessories",
 
     images: [
@@ -569,7 +569,7 @@ export const PRODUCT_DATA = [
     long_description:
       "The Fitbit Charge 4 is a versatile fitness tracker with a built-in GPS and heart rate monitor. It tracks your daily steps, calories burned, and sleep patterns, and provides personalized insights to help you reach your fitness goals. The Charge 4 also has a long battery life and is water-resistant.",
     category: "accessories",
-    price: 129.95,
+    price: 129,
     images: [
       "https://images.unsplash.com/photo-1503328427499-d92d1ac3d174",
       "https://images.unsplash.com/photo-1434494571168-ab162bce2813",
@@ -595,7 +595,7 @@ export const PRODUCT_DATA = [
     long_description:
       "The Beats Solo3 wireless headphones are designed for an immersive listening experience. With up to 40 hours of battery life, these headphones are perfect for long trips or extended listening sessions. They feature adjustable on-ear cushioned ear cups and a built-in microphone for taking calls and controlling music.",
     category: "accessories",
-    price: 179.99,
+    price: 179,
     images: ["https://images.unsplash.com/photo-1557063673-0493e05da49f"],
   },
   {

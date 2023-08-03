@@ -19,7 +19,7 @@ function CartProduct({ cartItem, callBack }: Props) {
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 border-b-2 space-y-5 p-3 rounded text-black">
       <div className="flex items-start space-x-3">
         <Image
-          className="border-neutral-400 border-4 rounded"
+          className="border-neutral-400 border-2 rounded"
           width={50}
           height={50}
           src={cartItem.images[0]}
