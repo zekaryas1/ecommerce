@@ -22,6 +22,8 @@ function CartProduct({ cartItem, callBack }: Props) {
           className="border-neutral-400 border-2 rounded"
           width={50}
           height={50}
+          placeholder='blur'
+          blurDataURL="/images/noimage.jpeg"
           src={cartItem.images[0]}
           alt={cartItem.short_description}
         />

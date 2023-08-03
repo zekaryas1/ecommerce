@@ -30,7 +30,7 @@ export default function Cart({ carts }: Props) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 md:gap-20">
+    <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-20">
       <div className="col-span-8 mt-3">
         <h2 className="text-2xl sm:text-4xl mt-3 mb-3 font-bold">
           Shopping cart
@@ -71,8 +71,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       };
     })
     .slice(0, 4);
-
-  console.log(carts);
 
   return {
     props: {

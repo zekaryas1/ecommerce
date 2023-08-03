@@ -16,9 +16,9 @@ function shop({ products, category, title, subTitle }: Props) {
   return (
     <>
       <div className="rounded mt-4 bg-gray-500 shadow-lg relative w-full h-96">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center text-white">
-          <h1 className="text-5xl font-bold">{title}</h1>
-          <p className="text-2x mt-2">{subTitle}</p>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full md:w-auto p-2 text-center text-white">
+          <h1 className="text-lg md:text-4xl lg:text-5xl font-bold">{title}</h1>
+          <p className="text-sm md:text-2x mt-2">{subTitle}</p>
         </div>
         <Image
           className="rounded filter grayscale brightness-50 hover:object-bottom transition-all duration-500 fixed w-full h-full object-cover object-center"

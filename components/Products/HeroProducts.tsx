@@ -25,11 +25,16 @@ function HeroProducts({ carouselData }: Props) {
               fill
               alt={carousel.description || "hero image"}
             />
-            <div className="legend lg:hidden !bg-gray-700">
-              View more {carousel.title}
+            <div
+              className="legend md:hidden !bg-gray-700"
+              onClick={() => {
+                router.push(`/shop?category=${carousel.category}`);
+              }}
+            >
+              View more {carousel.category}
             </div>
-            <div className="lg:block absolute text-white top-1/3 left-24 flex flex-col space-y-3">
-              <h2 className="lg:text-start text-5xl font-bold">
+            <div className="absolute text-white top-1/3 left-24 hidden md:flex flex-col space-y-3 lg:block">
+              <h2 className="text-start text-4xl lg:text-5xl font-bold">
                 {carousel.title}
               </h2>
               <p className="max-w-md text-gray-400 text-start">
