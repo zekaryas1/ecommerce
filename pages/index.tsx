@@ -1,41 +1,46 @@
 import React from "react";
-import {Product} from "../models/Product";
+import { Product } from "../models/Product";
 import ProductList from "../components/Products/ProductList";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import HeroProducts from "../components/Products/HeroProducts";
-import {carouselData} from "../models/CarouselData";
+import { CAROUSEL_DATA } from "../models/data/Carousel.Data";
+import { PRODUCT_DATA } from "../models/data/Products.Data";
 
 interface Props {
-    smartphones: Product[],
-    laptops: Product[],
+  headphones: Product[];
+  laptops: Product[];
 }
 
-export default function Home({smartphones, laptops}: Props) {
+export default function Home({ headphones, laptops }: Props) {
+  return (
+    <>
+      <HeroProducts carouselData={CAROUSEL_DATA} />
 
-    return (
-        <>
-            <HeroProducts carouselData={carouselData}/>
-
-            <ProductList products={smartphones} showViewAllButton={true} tittle="SmartPhones"
-                         description="Latest smartphones with better storage and camera"
-                         viewAllDestination="smartPhones"/>
-            <ProductList products={laptops} showViewAllButton={true} tittle="Laptops"
-                         description={"Powerful laptops made to last longer starting from 1099"}
-                         viewAllDestination="laptops"/>
-        </>
-    )
+      <ProductList
+        products={laptops}
+        showViewAllButton={true}
+        tittle="Laptops"
+        description={"Powerful laptops made to last longer starting from 1099"}
+        viewAllDestination="laptops"
+      />
+      <ProductList
+        products={headphones}
+        showViewAllButton={true}
+        tittle="Headphones"
+        description="Latest headphones with better sound and noise cancelation"
+        viewAllDestination="headphones"
+      />
+    </>
+  );
 }
-
 
 export async function getStaticProps() {
-    const smartphones = await fetch("https://dummyjson.com/products/category/smartphones").then(res => res.json());
-    const laptops = await fetch("https://dummyjson.com/products/category/laptops").then(res => res.json());
-
-    return {
-        props: {
-            smartphones: smartphones.products,
-            laptops: laptops.products,
-        },
-    }
-
+  return {
+    props: {
+      laptops: PRODUCT_DATA.filter((product) => product.category === "laptops"),
+      headphones: PRODUCT_DATA.filter(
+        (product) => product.category === "headphones"
+      ),
+    },
+  };
 }

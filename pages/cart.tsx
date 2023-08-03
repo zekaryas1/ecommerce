@@ -1,64 +1,82 @@
 import CartProduct from "../components/Products/MiniProduct";
-import {GetStaticProps} from "next";
-import {CartItem} from "../models/CartItem";
-import {useState} from "react";
+import { GetStaticProps } from "next";
+import { CartItem } from "../models/CartItem";
+import { useState } from "react";
 import CartDetail from "../components/CartDetail";
+import { PRODUCT_DATA } from "../models/data/Products.Data";
 
 interface Props {
-    carts: CartItem[],
+  carts: CartItem[];
 }
 
-export default function Cart({carts}: Props) {
-    const [state, setState] = useState(carts);
+export default function Cart({ carts }: Props) {
+  const [state, setState] = useState(carts);
 
+  const updatePriceChange = (cartItem: CartItem) => {
+    setState((prevState) => {
+      return prevState.map((cart) => {
+        if (cart.name == cartItem.name) {
+          cart.total = cartItem.total;
+        }
+        return cart;
+      });
+    });
+  };
 
-    const updatePriceChange = (cartItem: CartItem) => {
-        setState(prevState => {
-            return prevState.map(cart => {
-                if (cart.id == cartItem.id) {
-                    cart.total = cartItem.total;
-                }
-                return cart;
-            })
-        })
-    }
+  const handleRemove = (cartItem: CartItem) => {
+    setState((prevState) => {
+      return prevState.filter((it) => it.name !== cartItem.name);
+    });
+  };
 
-    const handleRemove = (cartItem: CartItem) => {
-        setState(prevState => {
-            return prevState.filter(it => it.id !== cartItem.id);
-        })
-    }
-
-
-    return (<div className="grid grid-cols-1 md:grid-cols-12 md:gap-20">
-        <div className="col-span-8">
-            <h2 className="text-2xl sm:text-4xl mt-3 mb-3 font-bold">Shopping cart</h2>
-            <hr className="bg-gray-200 mt-3 mb-3 sm:mt-6 sm:mb-6"/>
-            <div>
-                {
-                    state.map(cart => {
-                        return <CartProduct key={cart.id} cartItem={cart}
-                                            callBack={(event: string, cartItem: CartItem) => {
-                                                event == 'D' ? handleRemove(cartItem) : updatePriceChange(cartItem)
-                                            }}/>
-                    })
-                }
-            </div>
-
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-12 md:gap-20">
+      <div className="col-span-8">
+        <h2 className="text-2xl sm:text-4xl mt-3 mb-3 font-bold">
+          Shopping cart
+        </h2>
+        <hr className="bg-gray-200 mt-3 mb-3 sm:mt-6 sm:mb-6" />
+        <div>
+          {state.map((cart) => {
+            return (
+              <CartProduct
+                key={cart.name}
+                cartItem={cart}
+                callBack={(event: string, cartItem: CartItem) => {
+                  event == "D"
+                    ? handleRemove(cartItem)
+                    : updatePriceChange(cartItem);
+                }}
+              />
+            );
+          })}
         </div>
-        <div className="col-span-4">
-            <CartDetail cartItems={state}/>
-        </div>
-    </div>)
+      </div>
+      <div className="col-span-4">
+        <CartDetail cartItems={state} />
+      </div>
+    </div>
+  );
 }
-
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const carts = await fetch("https://dummyjson.com/carts/user/5").then(res => res.json());
+  const carts = PRODUCT_DATA.filter((product) => {
+    return product.category == "accessories";
+  })
+    .map((product) => {
+      return {
+        ...product,
+        quantity: 1,
+        total: 0,
+      };
+    })
+    .slice(0, 4);
 
-    return {
-        props: {
-            carts: carts.carts[0].products
-        }
-    }
-}
+  console.log(carts);
+
+  return {
+    props: {
+      carts: carts.length > 0 ? carts : [],
+    },
+  };
+};
