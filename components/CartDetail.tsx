@@ -9,7 +9,7 @@ interface Props {
 function CartDetail({ cartItems }: Props) {
   const tax = 15;
   const [shippingCost, setShippingCost] = useState(45);
-  const getTotalPrice = (carts: CartItem[]) => {
+  const getTotalPrice = (carts: CartItem[]): number => {
     let total = 0;
     carts.forEach((cart) => {
       total += cart.total;
