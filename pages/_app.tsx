@@ -5,6 +5,7 @@ import React from "react";
 import NextNProgress from "nextjs-progressbar";
 import { Secular_One } from "@next/font/google";
 import { CATEGORY_DATA } from "../models/data/Category.Data";
+import Footer from "../components/Layouts/Footer";
 
 const inter = Secular_One({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <NextNProgress color="#111827" />
       <Header categoryData={CATEGORY_DATA} />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
