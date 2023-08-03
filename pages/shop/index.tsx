@@ -3,21 +3,22 @@ import ProductList from "../../components/Products/ProductList";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import { PRODUCT_DATA } from "../../models/data/Products.Data";
+import { CAROUSEL_DATA } from "../../models/data/Carousel.Data";
 
 interface Props {
   products: Product[];
   category: string;
+  title: string;
+  subTitle: string;
 }
 
-function shop({ products, category }: Props) {
+function shop({ products, category, title, subTitle }: Props) {
   return (
     <>
       <div className="rounded mt-4 bg-gray-500 shadow-lg relative w-full h-96">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center text-white">
-          <h1 className="text-6xl font-bold">
-            This is a great product for you
-          </h1>
-          <p className="text-2x mt-2">Starting at 50.99</p>
+          <h1 className="text-5xl font-bold">{title}</h1>
+          <p className="text-2x mt-2">{subTitle}</p>
         </div>
         <Image
           className="rounded filter grayscale brightness-50 hover:object-bottom transition-all duration-500 fixed w-full h-full object-cover object-center"
@@ -47,9 +48,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
+  const carousalData = CAROUSEL_DATA.find((item) => item.category === category);
+
   return {
     props: {
-      category: category || "all",
+      title: carousalData?.description,
+      subTitle: carousalData?.title,
+      category: category,
       products: PRODUCT_DATA.filter((product) => product.category === category),
     },
   };

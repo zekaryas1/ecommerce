@@ -8,37 +8,37 @@ import { CarouselItem } from "../CarouselItem";
 
 export const CAROUSEL_DATA: CarouselItem[] = [
   {
-    title: "Dell xps 13",
+    title: "Cutting-edge laptops.",
     description:
-      "Dell XPS Plus 13 inch laptop featuring 12th Gen Intel Core processors with a modern design.",
+      "Experience limitless possibilities with our powerful and portable laptops.",
     image: laptop,
     category: "laptops",
   },
   {
-    title: "SoundWave 360",
+    title: "High-fidelity headphones",
     description:
-      "Experience music like never before with SoundWave 360. This innovative headband combines...",
+      "Escape into a world of immersive sound with our premium headphones.",
     image: headphone,
     category: "headphones",
   },
   {
-    title: "Acer Predator X27",
+    title: "Stunning monitors",
     description:
-      "The Acer Predator X27 is a 27-inch gaming monitor with a 3840 x 2160 resolution.",
+      "Immerse yourself in vivid visuals with our high-resolution monitors.",
     image: monitor,
     category: "monitors",
   },
   {
-    title: "Smartwatch X3",
+    title: "Trendsetting gadgets.",
     description:
-      "The Smartwatch X3 is a feature-packed wearable device that combines style with functionality.",
+      "Discover the latest must-have gadgets that redefine innovation.",
     image: gadgets,
     category: "gadgets",
   },
   {
-    title: "ULTRA HD DRONE",
+    title: "Essential accessories",
     description:
-      "The Ultra HD Drone is equipped with a 4K camera and advanced stabilization technology,",
+      "Elevate your style and functionality with our premium accessories.",
     image: accessories,
     category: "accessories",
   },
