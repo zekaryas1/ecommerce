@@ -49,11 +49,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const carousalData = CAROUSEL_DATA.find((item) => item.category === category);
+  if (!carousalData) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      title: carousalData?.description,
-      subTitle: carousalData?.title,
+      title: carousalData.description,
+      subTitle: carousalData.title,
       category: category,
       products: PRODUCT_DATA.filter((product) => product.category === category),
     },
