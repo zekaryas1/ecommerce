@@ -11,7 +11,7 @@ interface Props {
 
 function MainProduct({product}: Props) {
     return <Link href={`/shop/${product.name}`}>
-        <div className="shadow bg-neutral-200 rounded p-3 hover:bg-neutral-300 hover:cursor-pointer">
+        <div className="shadow bg-neutral-300 rounded p-3 hover:bg-neutral-200 hover:cursor-pointer">
             <Image className="w-full aspect-video object-cover rounded hover:grayscale-0 grayscale" src={product.images[0]} width="500" height="500"
                    alt={product.long_description}/>
             <div className="flex justify-between mt-2">

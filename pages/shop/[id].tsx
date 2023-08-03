@@ -38,7 +38,7 @@ export default function ShopById({ product, relatedProducts }: Props) {
       <ProductList
         products={relatedProducts}
         tittle="Related products"
-        description="Browser products with similar relation"
+        description="Browser products with similar property"
       />
     </>
   );
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return product.name === params?.id;
   });
   const relatedProducts = PRODUCT_DATA.filter(
-    (it) => it.category !== product?.category
+    (it) => it.category === product?.category
   );
 
   return {
@@ -70,6 +70,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: paths,
-    fallback: false, // can also be true or 'blocking'
+    fallback: false,
   };
 };
