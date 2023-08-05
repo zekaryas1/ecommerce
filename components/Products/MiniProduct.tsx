@@ -16,7 +16,7 @@ function CartProduct({ cartItem, callBack }: Props) {
   const [cartItemState, setCartItemState] = useState(cartItem);
 
   return (
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 border-b-2 space-y-5 p-3 rounded text-black">
+    <div data-testid="cart" className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 border-b-2 space-y-5 p-3 rounded text-black">
       <div className="flex items-start space-x-3">
         <Image
           className="border-neutral-400 border-2 rounded"
@@ -29,17 +29,18 @@ function CartProduct({ cartItem, callBack }: Props) {
         />
         <div>
           <p className="font-bold md:w-44 uppercase">{cartItemState.name}</p>
-          <span className="text-sm text-neutral-500">
+          <span data-testid="price" className="text-sm text-neutral-500">
             PRICE: ${cartItemState.price}
           </span>
         </div>
       </div>
       <div className="flex space-x-3 items-center">
         <MinusIcon
+          data-testid="minus"
           className="h-5 w-5 cursor-pointer"
           onClick={() => {
             setCartItemState((prevState) => {
-              if (prevState.quantity === 1) {
+              if (prevState.quantity === 0) {
                 return prevState;
               }
               const newState = {
@@ -52,10 +53,11 @@ function CartProduct({ cartItem, callBack }: Props) {
             });
           }}
         />
-        <span className="px-3 py-1 rounded border-neutral-400 border-2">
+        <span data-testid="quantity" className="px-3 py-1 rounded border-neutral-400 border-2">
           {cartItemState.quantity}
         </span>
         <PlusIcon
+          data-testid="plus"
           className="h-5 w-5 cursor-pointer"
           onClick={() => {
             setCartItemState((prevState) => {
@@ -72,6 +74,7 @@ function CartProduct({ cartItem, callBack }: Props) {
       </div>
       <p className="font-bold">${cartItemState.total}</p>
       <ArchiveBoxXMarkIcon
+        data-testid="remove"
         className="h-5 w-5 cursor-pointer"
         onClick={() => {
           callBack && callBack("D", cartItemState);

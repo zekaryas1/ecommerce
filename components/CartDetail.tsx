@@ -35,11 +35,15 @@ function CartDetail({ cartItems }: Props) {
       <hr className="bg-gray-200 mt-3 sm:mt-6 mb-5" />
       <div className="flex justify-between mb-5">
         <p className="uppercase font-medium">Cost</p>
-        <p className="font-bold">{cachedGetTotalPrice}</p>
+        <p className="font-bold" data-testid="order-total">
+          {cachedGetTotalPrice}
+        </p>
       </div>
       <div className="flex justify-between mb-5">
         <p className="uppercase font-medium">Tax {tax}%</p>
-        <p className="font-bold">${getTotalAfterTax(cartItems, tax)}</p>
+        <p className="font-bold" data-testid="tax">
+          ${getTotalAfterTax(cartItems, tax)}
+        </p>
       </div>
       <div className="mb-5">
         <p className="uppercase font-medium">Shipping</p>
@@ -63,14 +67,16 @@ function CartDetail({ cartItems }: Props) {
           placeholder="Enter your code"
         />
       </div>
-      <p className="flex justify-end text-sm text-neutral-500">
-        {" "}
+      <p
+        data-testid="total-after-tax"
+        className="flex justify-end text-sm text-neutral-500"
+      >
         {cachedGetTotalPrice} + {getTotalAfterTax(cartItems, tax)} +{" "}
         {shippingCost}{" "}
       </p>
       <div className="flex justify-between mb-5">
         <p className="uppercase font-medium">Total Cost</p>
-        <p className="font-bold">
+        <p className="font-bold" data-testid="overall-total-cost">
           $
           {cachedGetTotalPrice +
             getTotalAfterTax(cartItems, tax) +

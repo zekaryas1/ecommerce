@@ -36,7 +36,7 @@ export default function Cart({ carts }: Props) {
           Shopping cart
         </h2>
         <hr className="bg-gray-200 mt-3 mb-3 sm:mt-6 sm:mb-6" />
-        <div>
+        <div data-testid="cart-container">
           {state.map((cart) => {
             return (
               <CartProduct
