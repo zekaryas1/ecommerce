@@ -1,6 +1,11 @@
 ## About
 ![website preview](public/images/website_preview.png)
-- A simple ecommerce app made with Next.js, tailwindcss, typescript and react.
+- A simple ecommerce app made with
+  - Next.js/React
+  - Tailwindcss
+  - Typescript
+  - Playwright e2e testing
+  - Github Action
 
 ## Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
